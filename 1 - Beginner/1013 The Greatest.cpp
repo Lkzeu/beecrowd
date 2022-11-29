@@ -6,18 +6,17 @@
 
 #include <iostream>
 
-int abs(int a, int b) {
-    const int result = a - b;
-    if (result < 0)
-        return -result; // make it positive: -(-1) = 1
-    return result;
+int abs(int number) {
+    if (number < 0)
+        return -number; // make it positive: -(-1) = 1
+    return number;
 }
 
 int main() {
     int a{ }, b{ }, c{ };
     std::cin >> a >> b >> c;
 
-    const int greatestAB = (a + b + abs(a, b)) / 2;
+    const int greatestAB = (a + b + abs(a - b)) / 2;
     int greatest = greatestAB;
 
     if (c > greatest)
