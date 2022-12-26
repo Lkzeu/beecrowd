@@ -1,15 +1,13 @@
 #include <iostream>
-#include <iomanip>
 
-void printArray(int arr[], int size, const std::string& arr_name) 
-{
+void printArray(int arr[], int size, const std::string& arr_name) {
     for(int i = 0; i < size; ++i) {
-        std::cout << arr_name << "[" << i << "] = " << arr[i] << '\n';
+        std::cout << arr_name << "[" << i << "] = " << arr[i] << '\n'; // (im)par[i] = x
     }
 }
 
-void assignValue(int arr[], int& counter, int size, int number, const std::string& arr_name)
-{
+// insert number into array and reset the counter when the array is filled up
+void insert(int number, int arr[], int& counter, int size, const std::string& arr_name) {
     arr[counter] = number;
     ++counter; 
     if(counter == size) {
@@ -18,33 +16,23 @@ void assignValue(int arr[], int& counter, int size, int number, const std::strin
     }
 }
 
-int main() 
-{
-    constexpr int size{ 5 };
-    int even[size]{};
-    int odd [size]{};
-    
+int main() {
+    constexpr int array_size{ 5 };
+    int even[array_size]{};
+    int odd [array_size]{};
+
     int evens_counter{ 0 };
     int odds_counter { 0 };
-    for(int input = 0; input < 15; ++input)
-    {
+    for(int input = 0; input < 15; ++input) {
         int number{};
         std::cin >> number;
-
         if(number % 2 == 0) {
-            assignValue(even, evens_counter, size, number, "par");
+            insert(number, even, evens_counter, array_size, "par");
             continue;
         }
-        assignValue(odd, odds_counter, size, number, "impar");
-        
+        insert(number, odd, odds_counter, array_size, "impar");   
     }
-
-    if (odds_counter != 0) {
-        printArray(odd, odds_counter, "impar");
-    }
-
-    if (evens_counter != 0) {
-        printArray(even, evens_counter, "par");
-    }
+    printArray(odd, odds_counter, "impar");
+    printArray(even, evens_counter, "par");
     return 0;
 }
