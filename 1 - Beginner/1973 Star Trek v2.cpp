@@ -23,13 +23,13 @@ int main()
         }
     }
     
-    long long takeoff  { number_of_stars };
+    long long take_away  { number_of_stars };
     int  stars_attacked{ pos_even_attacked ? pos_even_attacked : number_of_stars };
     if (even_attacked) {
-        takeoff = (stars_attacked * 2) - zeros - 1; 
+        take_away = (stars_attacked * 2) - zeros - 1; 
     }
 
-    non_stolen_sheeps -= takeoff;
+    non_stolen_sheeps -= take_away;
     std::cout << stars_attacked << " " << non_stolen_sheeps << '\n';
     return 0;
 }
