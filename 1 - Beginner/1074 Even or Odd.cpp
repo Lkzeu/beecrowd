@@ -1,33 +1,26 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
     int test_cases{};
     std::cin >> test_cases;
-    std::string positive{};
-    std::string odd{};
+    
     for (int i = 0; i < test_cases; ++i) {
-        int x;
-        std::cin >> x;
-        if (x == 0) {
+        int temp;
+        std::cin >> temp;
+        if (temp == 0) {
             std::cout << "NULL\n";
             continue;
         }
+        std::string odd_or_even{ "ODD" };
+        if ((temp % 2) == 0) {
+            odd_or_even = "EVEN";
+        }
+        std::string sign{ "NEGATIVE" };
+        if (temp > 0) {
+            sign = "POSITIVE";
+        }
 
-        if ((x % 2) == 0) {
-            odd = "EVEN";
-        }
-        else {
-            odd = "ODD";
-        }
-
-        if (x > 0) {
-            positive = "POSITIVE";
-        }
-        else {
-            positive = "NEGATIVE";
-        }
-        std::cout << odd << " " << positive << '\n';
+        std::cout << odd_or_even << " " << sign << '\n';
     }
     return 0;
 }
