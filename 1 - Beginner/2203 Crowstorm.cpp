@@ -33,7 +33,7 @@ int main()
             calculate_distance(fiddle.coordinate, invasor.coordinate) +
             (fiddle.time_to_cast_ultimate * invasor.speed) };
 
-        bool invasor_scaped { distance_after_running_away - attack_radius > 0.00 };
+        bool invasor_scaped { distance_after_running_away > attack_radius };
         std::cout << ( !invasor_scaped ? "Y\n" : "N\n");
     }
 
