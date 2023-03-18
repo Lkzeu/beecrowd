@@ -1,7 +1,12 @@
 # Prerequisites
 *.d
+test
+*/test
 
 .vscode
+*.txt
+
+.gitignore
 
 # Compiled Object files
 *.slo
